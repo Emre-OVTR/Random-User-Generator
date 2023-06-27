@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Random User Generator</string>
+    <string name="refresh_button">Rafraichir la liste</string>
+    <string name="title_name">Nom:</string>
+    <string name="title_city">Ville:</string>
 </resources>
