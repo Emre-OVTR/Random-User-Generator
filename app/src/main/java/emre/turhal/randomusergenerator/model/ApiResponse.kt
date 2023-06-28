@@ -19,9 +19,6 @@ data class Location(
 	@field:SerializedName("city")
 	val city: String? = null,
 
-	@field:SerializedName("postcode")
-	val postcode: Int? = null,
-
 	@field:SerializedName("coordinates")
 	val coordinates: Coordinates? = null,
 
