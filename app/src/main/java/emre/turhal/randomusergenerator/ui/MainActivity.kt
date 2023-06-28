@@ -9,21 +9,23 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import emre.turhal.randomusergenerator.R
 import emre.turhal.randomusergenerator.ViewModel
+import emre.turhal.randomusergenerator.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var userViewModel: ViewModel
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var toolbar: androidx.appcompat.widget.Toolbar
     private lateinit var userAdapter: UsersListAdapter
-    private lateinit var button: Button
+    private lateinit var binding : ActivityMainBinding
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        configureToolbar()
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
+        configureToolbarAndRecyclerView()
         showUsersList()
-        configureRecyclerView()
         refreshUsersList()
         launchNewRequest()
     }
@@ -40,14 +42,11 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-    private fun configureToolbar(){
-        toolbar = findViewById(R.id.toolbar)
-        setSupportActionBar(toolbar)
-        supportActionBar?.title = (getString(R.string.app_name))
-    }
 
-    private fun configureRecyclerView(){
-        recyclerView = findViewById(R.id.recyclerview)
+    private fun configureToolbarAndRecyclerView(){
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.title = (getString(R.string.app_name))
+        val recyclerView = binding.recyclerview
         val layoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = layoutManager
         val dividerItemDecoration = DividerItemDecoration(recyclerView.context, layoutManager.orientation)
@@ -66,8 +65,7 @@ class MainActivity : AppCompatActivity() {
 
     //Refresh UI with new list of users
     private fun launchNewRequest(){
-        button = findViewById(R.id.refreshButton)
-        button.setOnClickListener {
+        binding.refreshButton.setOnClickListener {
             refreshUsersList()
         }
     }
