@@ -16,6 +16,7 @@ class ViewModel : ViewModel() {
 
     fun getUsers(){
         viewModelScope.launch {
+            //get only 20 users by request
             val response = service.getResults(20)
             if (response.isSuccessful){
                 val apiResponse = response.body()

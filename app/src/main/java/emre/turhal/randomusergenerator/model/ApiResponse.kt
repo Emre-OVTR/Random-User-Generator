@@ -2,6 +2,8 @@ package emre.turhal.randomusergenerator.model
 
 import com.google.gson.annotations.SerializedName
 
+
+//Model POJO, CONVERTED JSON
 data class ApiResponse(
 
 	@field:SerializedName("results")
