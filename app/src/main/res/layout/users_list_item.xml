@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -11,9 +12,6 @@
         android:id="@+id/picture"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
         android:contentDescription="@string/user_picture"
         tools:ignore="MissingConstraints"/>
 
@@ -22,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="@dimen/margin_to_parent"
         app:layout_constraintTop_toTopOf="@id/picture"
         app:layout_constraintStart_toEndOf="@id/picture">
 
@@ -33,15 +31,15 @@
             android:text="@string/title_name"
             android:textColor="@color/textColor"
             android:textStyle="bold"
-            android:textSize="20sp"/>
+            android:textSize="@dimen/title_text_size"/>
 
         <TextView
             android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="@dimen/margin_to_parent"
             android:textColor="@color/textColor"
-            android:textSize="14sp"/>
+            android:textSize="@dimen/value_text_size"/>
     </LinearLayout>
 
     <LinearLayout
@@ -57,17 +55,18 @@
             android:id="@+id/titleFirstNameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Prénom:"
+            android:text="@string/firstname"
             android:textColor="@color/textColor"
             android:textStyle="bold"
-            android:textSize="20sp"/>
+            android:textSize="@dimen/title_text_size"/>
 
         <TextView
             android:id="@+id/firstname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:textColor="@color/textColor"/>
+            android:layout_marginStart="@dimen/margin_to_parent"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/value_text_size"/>
     </LinearLayout>
 
 
@@ -76,7 +75,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="@dimen/margin_to_parent"
         app:layout_constraintBottom_toBottomOf="@id/picture"
         app:layout_constraintStart_toEndOf="@id/picture">
 
@@ -85,16 +84,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/title_city"
-            android:textColor="@color/textColor"
             android:textStyle="bold"
-            android:textSize="20sp"/>
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/title_text_size"/>
 
             <TextView
             android:id="@+id/city"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:textColor="@color/textColor"/>
+            android:layout_marginStart="@dimen/margin_to_parent"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/value_text_size"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

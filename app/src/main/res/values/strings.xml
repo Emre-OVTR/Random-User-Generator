@@ -4,4 +4,5 @@
     <string name="title_name">Nom:</string>
     <string name="title_city">Ville:</string>
     <string name="user_picture">User_Picture</string>
+    <string name="firstname">Prénom:</string>
 </resources>
