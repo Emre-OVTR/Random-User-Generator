@@ -1,12 +1,10 @@
 package emre.turhal.randomusergenerator.ui
 
 import android.os.Bundle
-import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import emre.turhal.randomusergenerator.R
 import emre.turhal.randomusergenerator.ViewModel
 import emre.turhal.randomusergenerator.databinding.ActivityMainBinding
@@ -69,5 +67,4 @@ class MainActivity : AppCompatActivity() {
             refreshUsersList()
         }
     }
-
 }
