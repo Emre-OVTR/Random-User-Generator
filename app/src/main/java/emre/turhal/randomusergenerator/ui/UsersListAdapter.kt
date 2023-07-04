@@ -11,6 +11,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import emre.turhal.randomusergenerator.R
 import emre.turhal.randomusergenerator.model.ResultsItem
+import org.w3c.dom.Text
 
 class UsersListAdapter : androidx.recyclerview.widget.ListAdapter<ResultsItem, UsersListAdapter.UserViewHolder>(UserDiffCallback()){
 
@@ -29,12 +30,14 @@ class UsersListAdapter : androidx.recyclerview.widget.ListAdapter<ResultsItem, U
         private val userName: TextView = itemView.findViewById(R.id.name)
         private val userCity: TextView = itemView.findViewById(R.id.city)
         private val userPicture: ImageView = itemView.findViewById(R.id.picture)
+        private val userFirstName: TextView = itemView.findViewById(R.id.firstname)
 
         fun bind(usersList: ResultsItem) = with(itemView) {
             Glide.with(context).load(usersList.picture?.large)
                 .apply(RequestOptions().circleCrop()).into(userPicture)
-            userName.text = "${usersList.name?.first} ${usersList.name?.last}"
+            userName.text = usersList.name?.last
             userCity.text = usersList.location?.city
+            userFirstName.text = usersList.name?.first
         }
 
         companion object {
