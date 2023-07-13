@@ -5,4 +5,5 @@
     <string name="title_city">Ville:</string>
     <string name="user_picture">User_Picture</string>
     <string name="firstname">Prénom:</string>
+    <string name="pic_scale">pic_scale</string>
 </resources>
