@@ -11,9 +11,8 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import emre.turhal.randomusergenerator.R
 import emre.turhal.randomusergenerator.model.ResultsItem
-import org.w3c.dom.Text
 
-class UsersListAdapter : androidx.recyclerview.widget.ListAdapter<ResultsItem, UsersListAdapter.UserViewHolder>(UserDiffCallback()){
+class UsersListAdapter(private val clickListener : (user : ResultsItem) -> Unit) : androidx.recyclerview.widget.ListAdapter<ResultsItem, UsersListAdapter.UserViewHolder>(UserDiffCallback()){
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
@@ -21,8 +20,8 @@ class UsersListAdapter : androidx.recyclerview.widget.ListAdapter<ResultsItem, U
     }
 
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
-        val userList = getItem(position)
-        holder.bind(userList)
+        val user = getItem(position)
+        holder.bind(user, clickListener)
     }
 
 
@@ -32,12 +31,15 @@ class UsersListAdapter : androidx.recyclerview.widget.ListAdapter<ResultsItem, U
         private val userPicture: ImageView = itemView.findViewById(R.id.picture)
         private val userFirstName: TextView = itemView.findViewById(R.id.firstname)
 
-        fun bind(usersList: ResultsItem) = with(itemView) {
-            Glide.with(context).load(usersList.picture?.large)
+        fun bind(user: ResultsItem, clickListener: (user: ResultsItem) -> Unit) = with(itemView) {
+            Glide.with(context).load(user.picture?.large)
                 .apply(RequestOptions().circleCrop()).into(userPicture)
-            userName.text = usersList.name?.last
-            userCity.text = usersList.location?.city
-            userFirstName.text = usersList.name?.first
+            userName.text = user.name?.last
+            userCity.text = user.location?.city
+            userFirstName.text = user.name?.first
+            itemView.setOnClickListener{
+                clickListener(user)
+            }
         }
 
         companion object {

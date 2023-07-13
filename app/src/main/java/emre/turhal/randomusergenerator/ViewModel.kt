@@ -14,15 +14,17 @@ class ViewModel : ViewModel() {
 
     val usersLiveData: MutableLiveData<List<ResultsItem?>> = MutableLiveData()
 
-    fun getUsers(){
+
+    fun getUsers() {
         viewModelScope.launch {
             //get only 20 users by request
             val response = service.getResults(20)
-            if (response.isSuccessful){
+            if (response.isSuccessful) {
                 val apiResponse = response.body()
                 val results = apiResponse?.results
                 usersLiveData.postValue(results)
             }
         }
     }
+
 }

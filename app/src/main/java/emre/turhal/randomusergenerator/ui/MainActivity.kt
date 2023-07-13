@@ -1,5 +1,6 @@
 package emre.turhal.randomusergenerator.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -8,14 +9,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import emre.turhal.randomusergenerator.R
 import emre.turhal.randomusergenerator.ViewModel
 import emre.turhal.randomusergenerator.databinding.ActivityMainBinding
+import emre.turhal.randomusergenerator.model.ResultsItem
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var userViewModel: ViewModel
     private lateinit var userAdapter: UsersListAdapter
     private lateinit var binding : ActivityMainBinding
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,9 +49,16 @@ class MainActivity : AppCompatActivity() {
         recyclerView.layoutManager = layoutManager
         val dividerItemDecoration = DividerItemDecoration(recyclerView.context, layoutManager.orientation)
         recyclerView.addItemDecoration(dividerItemDecoration)
-        userAdapter = UsersListAdapter()
+        userAdapter = UsersListAdapter(this::onUserClicked)
         recyclerView.adapter = userAdapter
     }
+
+    private fun onUserClicked(user:ResultsItem){
+        val intent = Intent(this, UserDetailsActivity::class.java)
+        intent.putExtra(UserDetailsActivity.USER, user)
+        startActivity(intent)
+    }
+
 
     // fire a network call to refresh apiresponse
     private fun refreshUsersList(){
