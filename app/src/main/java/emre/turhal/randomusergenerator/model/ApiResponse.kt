@@ -1,6 +1,7 @@
 package emre.turhal.randomusergenerator.model
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 
 //Model POJO, CONVERTED JSON
@@ -11,7 +12,7 @@ data class ApiResponse(
 
 	@field:SerializedName("info")
 	val info: Info? = null
-)
+):Serializable
 
 data class Location(
 
@@ -26,7 +27,7 @@ data class Location(
 
 	@field:SerializedName("state")
 	val state: String? = null
-)
+):Serializable
 
 data class Info(
 
@@ -41,7 +42,7 @@ data class Info(
 
 	@field:SerializedName("version")
 	val version: String? = null
-)
+):Serializable
 
 data class Coordinates(
 
@@ -50,7 +51,7 @@ data class Coordinates(
 
 	@field:SerializedName("longitude")
 	val longitude: String? = null
-)
+):Serializable
 
 data class Name(
 
@@ -62,7 +63,7 @@ data class Name(
 
 	@field:SerializedName("first")
 	val first: String? = null
-)
+):Serializable
 
 data class ResultsItem(
 
@@ -74,7 +75,7 @@ data class ResultsItem(
 
 	@field:SerializedName("picture")
 	val picture: Picture? = null
-)
+):Serializable
 
 
 data class Picture(
@@ -87,4 +88,4 @@ data class Picture(
 
 	@field:SerializedName("medium")
 	val medium: String? = null
-)
+):Serializable
