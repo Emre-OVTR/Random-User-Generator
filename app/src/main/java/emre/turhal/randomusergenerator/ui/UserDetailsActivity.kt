@@ -27,8 +27,14 @@ class UserDetailsActivity : AppCompatActivity() {
 
     private fun displayUser(){
         val imageView = binding.userPhoto
+        val name = binding.name
+        val dob = binding.dob
         user = intent.getSerializableExtra(USER) as ResultsItem
         Glide.with(this).load(user.picture?.large)
             .apply(RequestOptions().circleCrop()).into(imageView)
+
+       name.text = "${user.name?.first} ${user.name?.last}"
+
+
     }
 }
