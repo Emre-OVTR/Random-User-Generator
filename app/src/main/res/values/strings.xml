@@ -6,4 +6,12 @@
     <string name="user_picture">User_Picture</string>
     <string name="firstname">Prénom:</string>
     <string name="pic_scale">pic_scale</string>
+    <string name="phone">Phone</string>
+    <string name="email">Email</string>
+    <string name="contact">Contact</string>
+    <string name="Country">Pays</string>
+    <string name="City">Ville</string>
+    <string name="age">Age</string>
+    <string name="place">Lieu de résidence</string>
+    <string name="general_infos">Informations générales</string>
 </resources>
